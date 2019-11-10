@@ -95,10 +95,12 @@ class _CameraAppState extends State<CameraApp> {
     });
   }
 
+  /// スナックバー表示、画像保存時にファイルパスが表示される
   void showInSnackBar(String message) {
     _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(message)));
   }
 
+  /// タイムスタンプ取得
   String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
 
   /// カメラ撮影処理
@@ -109,17 +111,19 @@ class _CameraAppState extends State<CameraApp> {
     final String filePath = '$dirPath/${timestamp()}.jpg';
 
     try {
-      controller.takePicture(filePath);
+      controller.takePicture(filePath); // 撮影
     } on CameraException catch (e) {
       _showCameraException(e);
     }
     return filePath;
   }
 
+  /// カメラエラー
   void _showCameraException(CameraException e) {
     logError(e.code, e.description);
   }
 
+  /// エラーログ
   void logError(String code, String message) =>
       print('Error: $code/nError Message: $message');
 }
