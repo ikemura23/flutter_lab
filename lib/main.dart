@@ -101,7 +101,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SvgPicture.asset(
               'assets/svg/commerce-and-shopping.svg',
-              color: Colors.red,
               semanticsLabel: 'shopping',
               width: 50,
               height: 50,
