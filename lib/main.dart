@@ -47,7 +47,13 @@ class _MyHomePageState extends State<MyHomePage> {
     showModalBottomSheet(
       context: context,
       builder: (context) => DraggableScrollableSheet(
-        builder: (context, scrollController) => Text("hello world"),
+        builder: (context, scrollController) {
+          return ListView(
+            controller: scrollController,
+            padding: EdgeInsets.all(8),
+            children: <Widget>[Text("Hello"), Text("World")],
+          );
+        },
       ),
     );
   }
