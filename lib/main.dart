@@ -43,6 +43,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _fabPressed() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => Text("hello world"),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () => _fabPressed(),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
