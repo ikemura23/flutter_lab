@@ -46,7 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void _fabPressed() {
     showModalBottomSheet(
       context: context,
-      builder: (context) => Text("hello world"),
+      builder: (context) => DraggableScrollableSheet(
+        builder: (context, scrollController) => Text("hello world"),
+      ),
     );
   }
 
