@@ -46,6 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void _fabPressed() {
     showModalBottomSheet(
       context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
       builder: (context) => DraggableScrollableSheet(
         builder: (context, scrollController) {
           return ListView(
