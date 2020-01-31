@@ -50,20 +50,23 @@ class _MyHomePageState extends State<MyHomePage> {
 //              '$_counter',
 //              style: Theme.of(context).textTheme.display1,
 //            ),
-            Row(
-              children: <Widget>[
-                Text(
-                  "Hello",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+            Container(
+              color: Colors.grey.withAlpha(50),
+              child: Row(
+                children: <Widget>[
+                  Text(
+                    "Hello",
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Text(
-                  "World",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
+                  Text(
+                    "World",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ],
+              ),
             )
           ],
         ),
