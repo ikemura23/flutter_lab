@@ -43,13 +43,28 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+//            Text(
+//              'You have pushed the button this many times:',
+//            ),
+//            Text(
+//              '$_counter',
+//              style: Theme.of(context).textTheme.display1,
+//            ),
+            Row(
+              children: <Widget>[
+                Text(
+                  "Hello",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "World",
+                  style: TextStyle(fontSize: 16),
+                ),
+              ],
+            )
           ],
         ),
       ),
