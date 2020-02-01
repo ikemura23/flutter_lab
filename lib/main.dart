@@ -53,7 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               color: Colors.grey.withAlpha(50),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
                     "Hello",
@@ -62,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  Spacer(), // <= 追加
                   Text(
                     "World",
                     style: TextStyle(fontSize: 16),
