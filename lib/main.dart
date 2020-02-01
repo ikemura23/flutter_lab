@@ -53,14 +53,13 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               color: Colors.grey.withAlpha(50),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      "Hello",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  Text(
+                    "Hello",
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
