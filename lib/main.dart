@@ -54,11 +54,13 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.grey.withAlpha(50),
               child: Row(
                 children: <Widget>[
-                  Text(
-                    "Hello",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Text(
+                      "Hello",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   Text(
