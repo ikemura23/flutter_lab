@@ -26,6 +26,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  double _sliderValue = 10;
 
   void _incrementCounter() {
     setState(() {
@@ -43,21 +44,31 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+//            Text(
+//              'You have pushed the button this many times:',
+//            ),
+//            Text(
+//              '$_counter',
+//              style: Theme.of(context).textTheme.display1,
+//            ),
+            Slider(
+              min: 0,
+              max: 100,
+              divisions: 9,
+              value: _sliderValue,
+              label: '${_sliderValue.floor()}',
+              onChanged: (d) => setState(() {
+                _sliderValue = d;
+              }),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+//      floatingActionButton: FloatingActionButton(
+//        onPressed: _incrementCounter,
+//        tooltip: 'Increment',
+//        child: Icon(Icons.add),
+//      ),
     );
   }
 }
