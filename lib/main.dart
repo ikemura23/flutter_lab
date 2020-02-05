@@ -26,7 +26,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  double _sliderValue = 10;
+  double _sliderValue = 0;
+  double _customSliderValue = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -51,16 +52,41 @@ class _MyHomePageState extends State<MyHomePage> {
 //              '$_counter',
 //              style: Theme.of(context).textTheme.display1,
 //            ),
-            Slider(
-              min: 0,
-              max: 100,
-              divisions: 9,
-              value: _sliderValue,
-              label: '${_sliderValue.floor()}',
-              onChanged: (d) => setState(() {
-                _sliderValue = d;
-              }),
-            ),
+//            Slider(
+//              min: 0,
+//              max: 100,
+//              divisions: 9,
+//              value: _sliderValue,
+//              label: '${_sliderValue.floor()}',
+//              onChanged: (d) =>
+//                  setState(() {
+//                    _sliderValue = d;
+//                  }),
+//            ),
+            SliderTheme(
+              data: SliderTheme.of(context).copyWith(
+                trackHeight: 10,
+                thumbColor: Colors.purpleAccent,
+                thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12),
+                valueIndicatorColor: Colors.orange,
+                overlayColor: Colors.orange.withAlpha(80),
+                activeTrackColor: Colors.black,
+                inactiveTrackColor: Colors.amber,
+                inactiveTickMarkColor: Colors.blue,
+                activeTickMarkColor: Colors.green,
+              ),
+              child: Slider(
+                min: 0,
+                max: 100,
+                divisions: 10,
+                value: _customSliderValue,
+                label: '${_customSliderValue.floor()}',
+                onChanged: (d) =>
+                    setState(() {
+                      _customSliderValue = d;
+                    }),
+              ),
+            )
           ],
         ),
       ),
