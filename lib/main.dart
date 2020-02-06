@@ -63,6 +63,18 @@ class _MyHomePageState extends State<MyHomePage> {
 //                    _sliderValue = d;
 //                  }),
 //            ),
+            // non theme
+            Slider(
+              min: 0,
+              max: 100,
+              value: _customSliderValue,
+              divisions: 10,
+              label: '${_customSliderValue.floor()}',
+              onChanged: (d) => setState(() {
+                _customSliderValue = d;
+              }),
+            ),
+            // theme customize
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
                 trackHeight: 10,
@@ -81,10 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 divisions: 10,
                 value: _customSliderValue,
                 label: '${_customSliderValue.floor()}',
-                onChanged: (d) =>
-                    setState(() {
-                      _customSliderValue = d;
-                    }),
+                onChanged: (d) => setState(() {
+                  _customSliderValue = d;
+                }),
               ),
             )
           ],
