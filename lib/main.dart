@@ -8,8 +8,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          // スライダーのテーマ指定
+//        sliderTheme: SliderThemeData(
+//          trackHeight: 10,
+//          thumbColor: Colors.purpleAccent,
+//          thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12),
+//          valueIndicatorColor: Colors.orange,
+//          overlayColor: Colors.orange.withAlpha(80),
+//          activeTrackColor: Colors.black,
+//          inactiveTrackColor: Colors.amber,
+//          inactiveTickMarkColor: Colors.blue,
+//          activeTickMarkColor: Colors.green,
+//        ),
+          ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
