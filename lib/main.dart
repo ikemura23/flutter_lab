@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lab/sample_model.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider<SampleModel>(
+      create: (_) => SampleModel(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MyHomePage2(title: 'Flutter Demo Home Page'),
       ),
-      home: MyHomePage2(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -28,14 +33,26 @@ class MyHomePage2 extends StatelessWidget {
         title: Text(this.title),
       ),
       body: Center(
-        child: Text(
-          "count: $_count",
-          style: TextStyle(fontSize: 30),
-        ),
+        child: _buildText(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: null,
         child: Icon(Icons.add),
+      ),
+    );
+  }
+
+  Widget _buildText() {
+    // Consumerにはアクセスしたいモデルの種類を指定するため、ジェネリックで<SampleModel>と書く
+    return Consumer<SampleModel>(
+      builder: (context, model, child) => InkWell(
+        onTap: model.fetchSampleItem,
+        child: Center(
+          child: Text(
+            "count: ${model.item.id}",
+            style: TextStyle(fontSize: 30),
+          ),
+        ),
       ),
     );
   }
