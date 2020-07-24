@@ -10,7 +10,25 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage2(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage2 extends StatelessWidget {
+  MyHomePage2({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(this.title),
+      ),
+      body: Center(
+        child: Text("hello"),
+      ),
     );
   }
 }
