@@ -34,9 +34,7 @@ class MyHomePage2 extends StatelessWidget {
       appBar: AppBar(
         title: Text(this.title),
       ),
-      body: Center(
-        child: _buildText(item),
-      ),
+      body: _buildText(item),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           context.read<SampleModel>().fetchSampleItem();
@@ -48,9 +46,11 @@ class MyHomePage2 extends StatelessWidget {
 
   Widget _buildText(SampleItem item) {
     // Consumerにはアクセスしたいモデルの種類を指定するため、ジェネリックで<SampleModel>と書く
-    return Text(
-      "count: ${item.id}",
-      style: TextStyle(fontSize: 30),
+    return Center(
+      child: Text(
+        "count: ${item.id}",
+        style: TextStyle(fontSize: 30),
+      ),
     );
   }
 }
