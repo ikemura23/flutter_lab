@@ -7,14 +7,14 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<SampleModel>(
-      create: (_) => SampleModel()..fetchSampleItem(),
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: MyHomePage2(title: 'Flutter Demo Home Page'),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: ChangeNotifierProvider<SampleModel>(
+        create: (context) => SampleModel()..fetchSampleItem(),
+        child: MyHomePage2(title: 'Flutter Demo Home Page'),
       ),
     );
   }
