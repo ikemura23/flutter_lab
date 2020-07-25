@@ -25,7 +25,6 @@ class MyHomePage2 extends StatelessWidget {
   MyHomePage2({Key key, this.title}) : super(key: key);
 
   final String title;
-  int _count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -45,11 +44,18 @@ class MyHomePage2 extends StatelessWidget {
   }
 
   Widget _buildText(SampleItem item) {
-    // Consumerにはアクセスしたいモデルの種類を指定するため、ジェネリックで<SampleModel>と書く
     return Center(
-      child: Text(
-        "count: ${item.id}",
-        style: TextStyle(fontSize: 30),
+      child: Column(
+        children: <Widget>[
+          Text(
+            "id: ${item.id}",
+            style: TextStyle(fontSize: 30),
+          ),
+          Text(
+            "name: ${item.name}",
+            style: TextStyle(fontSize: 30),
+          ),
+        ],
       ),
     );
   }
