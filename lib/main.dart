@@ -28,7 +28,14 @@ class MyHomePage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // context.selectで状態クラスにアクセスする
     final item = context.select((SampleModel model) => model.item);
+
+    // context.watch 変更を監視する
+    // context.select は監視対象を変数１つに絞れる（基本的にはこっちを使う）
+    // context.read は変更を監視しない
+    // 参考 https://ja.unflf.com/tech/flutter/provider/
+
     return Scaffold(
       appBar: AppBar(
         title: Text(this.title),
