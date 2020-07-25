@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lab/sample_item.dart';
 import 'package:flutter_lab/sample_model.dart';
 import 'package:provider/provider.dart';
 
@@ -28,32 +29,28 @@ class MyHomePage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final item = context.select((SampleModel model) => model.item);
     return Scaffold(
       appBar: AppBar(
         title: Text(this.title),
       ),
       body: Center(
-        child: _buildText(),
+        child: _buildText(item),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: () {
+          context.read<SampleModel>().fetchSampleItem();
+        },
         child: Icon(Icons.add),
       ),
     );
   }
 
-  Widget _buildText() {
+  Widget _buildText(SampleItem item) {
     // Consumerにはアクセスしたいモデルの種類を指定するため、ジェネリックで<SampleModel>と書く
-    return Consumer<SampleModel>(
-      builder: (context, model, child) => InkWell(
-        onTap: model.fetchSampleItem,
-        child: Center(
-          child: Text(
-            "count: ${model.item.id}",
-            style: TextStyle(fontSize: 30),
-          ),
-        ),
-      ),
+    return Text(
+      "count: ${item.id}",
+      style: TextStyle(fontSize: 30),
     );
   }
 }
