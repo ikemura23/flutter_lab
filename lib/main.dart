@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'logger.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -30,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
+      logger.info(_counter);
     });
   }
 
