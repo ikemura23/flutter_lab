@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lab/gen/assets.gen.dart';
 
 import 'logger.dart';
 
@@ -56,6 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Image(
               image: AssetImage('assets/images/androidthings.jpg'),
             ),
+            Image(
+              image: Assets.images.androidthings,
+            )
           ],
         ),
       ),
