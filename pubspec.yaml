@@ -9,6 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   simple_logger:
+  video_player:
 
   cupertino_icons: ^0.1.3
 
