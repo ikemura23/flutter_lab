@@ -55,9 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.display1,
             ),
             Image(
-              image: AssetImage('assets/images/androidthings.jpg'),
-            ),
-            Image(
               image: Assets.images.androidthings,
             )
           ],
