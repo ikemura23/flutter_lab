@@ -10,15 +10,20 @@ class VideoPlayerScreen extends StatefulWidget {
 
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   VideoPlayerController _controller;
+  Future<void> _initializeVideoPlayerFuture;
 
   @override
   void initState() {
-    super.initState();
     _controller = VideoPlayerController.file(
-        File('assets/movies/android_youtube_demo.mp4'))
-      ..initialize().then((_) {
-        setState(() {});
-      });
+        File('assets/movies/android_youtube_demo.mp4'));
+    _initializeVideoPlayerFuture = _controller.initialize();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
