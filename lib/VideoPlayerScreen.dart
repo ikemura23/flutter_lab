@@ -14,10 +14,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   @override
   void initState() {
-    _controller = VideoPlayerController.file(
-        File('assets/movies/android_youtube_demo.mp4'));
-    _initializeVideoPlayerFuture = _controller.initialize();
     super.initState();
+    _controller = VideoPlayerController.network(
+        'https://www.dropbox.com/s/7r50ifpmj96lo4a/snapchat_output.mp4?dl=1')
+      ..initialize().then((_) {
+        setState(() {});
+      });
   }
 
   @override
@@ -28,6 +30,29 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      title: 'Video Demo',
+      home: Scaffold(
+        body: Center(
+          child: _controller.value.initialized
+              ? AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: VideoPlayer(_controller),
+                )
+              : Container(),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              _controller.value.isPlaying
+                  ? _controller.pause()
+                  : _controller.play();
+            });
+          },
+          child: Icon(
+              _controller.value.isPlaying ? Icons.pause : Icons.play_arrow),
+        ),
+      ),
+    );
   }
 }

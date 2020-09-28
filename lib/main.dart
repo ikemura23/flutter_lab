@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lab/VideoPlayerScreen.dart';
 import 'package:flutter_lab/gen/assets.gen.dart';
 
 import 'logger.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: VideoPlayerScreen(),
     );
   }
 }
